@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title>BvS - Opinions</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Batman VS Superman twitter opinions">
+        <meta name="author" content="Guto Maia">
+
+        <link rel="stylesheet" href="/component/mui/css/mui.css">
+        <link rel="stylesheet" href="/css/style.css">
+
+        <style>
+            /*
+             * https://github.com/tobiasahlin/SpinKit/blob/master/examples/1-rotating-plane.html
+             */
+
+            .sk-rotating-plane {
+              width: 40px;
+              height: 40px;
+              background-color: #333;
+              margin: 40px auto;
+              -webkit-animation: sk-rotatePlane 1.2s infinite ease-in-out;
+                      animation: sk-rotatePlane 1.2s infinite ease-in-out; }
+            @-webkit-keyframes sk-rotatePlane {
+              0% {
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                        transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+              50% {
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+              100% {
+                -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+            @keyframes sk-rotatePlane {
+              0% {
+                -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+                        transform: perspective(120px) rotateX(0deg) rotateY(0deg); }
+              50% {
+                -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+                        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg); }
+              100% {
+                -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+                        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg); } }
+        </style>
+
+        <script>
+        var requirejs = {
+            shim : {
+                "bootstrap" : { "deps" : ['jquery'] },
+                "backbone":  { "deps" : ['underscore', 'jquery'] },
+                "jquery.maskedinput": { "deps": ['jquery']},
+                "rangeslider.js": { "deps": ['jquery'] },
+                "mui": {"exports": 'mui'}
+            },
+            paths: {
+                "app": ".",
+                "jquery" : "/component/jquery/jquery",
+                "jquery.maskedinput": "/component/jquery-maskedinput/jquery.maskedinput",
+                "rangeslider": "/component/rangeslider.js/rangeslider",
+                "mui": "/component/mui/mui",
+                "backbone": "/component/backbone/backbone",
+                "backbone.babysitter" :  "/component/backbone.babysitter/backbone.babysitter",
+                "backbone.wreqr" :  "/component/backbone.wreqr/backbone.wreqr",
+                "backbone.marionette" :  "/component/backbone.marionette/backbone.marionette",
+                "underscore": "/component/underscore/underscore",
+                "lodash": "/component/lodash/lodash.compat",
+                "socketio": "/socket.io/socket.io.js",
+                "text": "/component/requirejs-text/text",
+                "tpl": "/component/requirejs-underscore-tpl/underscore-tpl"
+            }
+        };
+        </script>
+    </head>
+    <body>
+        <div id="app"><div class="sk-rotating-plane"></div></div>
+        <script type="text/javascript" data-main="/init.js" src="/component/requirejs/require.js"></script>
+    </body>
+</html>

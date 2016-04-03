@@ -1,0 +1,57 @@
+{
+  "name": "gutonet-webapp",
+  "version": "0.1.1",
+  "homepage": "https://",
+  "authors": [
+    "Guto Maia <guto@guto.net>"
+  ],
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "2.1.4",
+    "jquery-maskedinput":"1.4.1",
+    "backbone": "1.2.3",
+    "backbone.marionette": "2.4.4",
+    "backbone.wreqr": "1.3.5",
+    "phaser": "2.4.4",
+    "phaser-isometric": "phaser-isometric#ae4f692ffc",
+    "ace-builds": "1.2.3",
+    "underscore": "1.8.3",
+    "requirejs": "2.1.18",
+    "requirejs-text": "2.0.12",
+    "underscore-tpl": "0.3.3",
+    "requirejs-underscore-tpl": "requirejs-underscore-tpl#824a9c4e9e",
+    "mui": "0.4.6"
+  },
+  "private": true,
+  "install" : {
+      "path" : {
+        "js": "external/component",
+        "swf": "external/component",
+        "scss": "external/component/{name}/css",
+        "css": "external/component/{name}/css",
+        "eot": "external/component/{name}/fonts",
+        "otf": "external/component/{name}/fonts",
+        "svg": "external/component/{name}/fonts",
+        "ttf": "external/component/{name}/fonts",
+        "woff": "external/component/{name}/fonts",
+        "png": "external/component/{name}/images"
+      },
+      "sources" : {
+        "requirejs-text": ["bower_components/requirejs-text/text.js"],
+        "underscore-tpl": ["bower_components/underscore-tpl/dist/underscore-tpl.js"],
+        "requirejs-underscore-tpl": ["bower_components/requirejs-underscore-tpl/underscore-tpl.js"],
+        "ace-builds" : ["bower_components/ace-builds/src-noconflict/*.js"],
+        "phaser-isometric" : ["bower_components/phaser-isometric/dist/*.js"]
+
+      }
+
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,4 +1,3 @@
 bower_components/
+external/
 node_modules/
-jshint.config
-Makefile

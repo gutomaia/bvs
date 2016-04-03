@@ -1,0 +1,10 @@
+<div id="sidedrawer-brand" class="mui--appbar-line-height mui--text-title">BvS</div>
+<div class="mui-divider"></div>
+<ul>
+  <% for(r in routes) { if (routes[r].icon) { %>
+      <li>
+          <a href="/<%= routes[r].url %>"><strong><i class="fa <%= routes[r].icon %> fa-fw"></i><%= routes[r].name %></strong></a>
+      </li>
+  <% }}; %>
+  <li>
+</ul>
