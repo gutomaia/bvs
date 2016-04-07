@@ -21,7 +21,8 @@
     "requirejs-text": "2.0.12",
     "underscore-tpl": "0.3.3",
     "requirejs-underscore-tpl": "requirejs-underscore-tpl#824a9c4e9e",
-    "mui": "0.4.6"
+    "mui": "0.4.6",
+    "font-awesome": "4.5.0"
   },
   "private": true,
   "install" : {
@@ -42,8 +43,9 @@
         "underscore-tpl": ["bower_components/underscore-tpl/dist/underscore-tpl.js"],
         "requirejs-underscore-tpl": ["bower_components/requirejs-underscore-tpl/underscore-tpl.js"],
         "ace-builds" : ["bower_components/ace-builds/src-noconflict/*.js"],
-        "phaser-isometric" : ["bower_components/phaser-isometric/dist/*.js"]
-
+        "phaser-isometric" : ["bower_components/phaser-isometric/dist/*.js"],
+        "font-awesome" : ["bower_components/font-awesome/css/*.css",
+                          "bower_components/font-awesome/fonts/*"]
       }
 
   },

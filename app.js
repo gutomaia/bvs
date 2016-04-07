@@ -7,7 +7,10 @@ var io = require('socket.io')(http);
 
 http.listen(process.env.PORT || 8888);
 
+var bluebird = require('bluebird');
 var redis = require('redis');
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
 
 function getRedisClient() {
     var credentials;
@@ -50,13 +53,21 @@ app.get('/tweets', function(req, res) {
 
 app.get('/score', function(req, res) {
     var db = getRedisClient();
-    var positive = db.get('positive');
-    var negative = db.get('negative');
-    var neutral = db.get('neutral');
-    res.send({
-        positive: positive,
-        negative: negative,
-        neutral: neutral
+    var positive, negative, neutral, error;
+
+    db.multi()
+        .get('positive')
+        .get('negative')
+        .get('neutral')
+        .get('error')
+        .execAsync().then(function(opinion) {
+            var data = {
+                positive: opinion[0],
+                negative: opinion[1],
+                neutral: opinion[2],
+                error: opinion[3]
+            };
+            res.send(data);
     });
     db.quit();
 });
@@ -64,12 +75,16 @@ app.get('/score', function(req, res) {
 io.on('connection', function(socket) {
     var sub = getRedisClient();
     sub.subscribe('tweet');
+    sub.subscribe('opinion');
+    sub.subscribe('score');
     sub.on('message', function(channel, message) {
-        socket.send('tweet', message);
+        socket.send(channel, message);
     });
 
     socket.on('disconnect', function() {
         sub.unsubscribe('tweet');
+        sub.unsubscribe('opinion');
+        sub.unsubscribe('score');
         sub.quit();
     });
 });
